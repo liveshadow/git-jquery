@@ -1,0 +1,23 @@
+div.u-full-width
+  table.u-full-width
+    thead
+      tr
+        th Event Type
+        th User
+        th Public?
+        th Created at
+        th Repo
+      tbody
+      each item in items
+        tr
+          td= item.type
+          td= item.actor.login
+          td
+            if (item.public)
+              |Public
+            else
+              |Private
+          td= item.created_at
+          td
+            a(href=item.repo.url)
+              = item.repo.name

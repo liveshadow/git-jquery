@@ -1,8 +1,23 @@
-each item in items
-    div.row 
-        div.six.columns
+div.u-full-width
+  table.u-full-width
+    thead
+      tr
+        th Repository Name
+        th Owner
+        th Public?
+        th Forks
+        th Open Issues
+      tbody
+      each item in items
+        tr
+          td
             a(href="#", onClick='repoView("' + item.full_name + '")')
-                = item.full_name
-        div.six.columns
-            = item.open_issues
-            |  issues
+              = item.full_name
+          td= item.owner.login
+          td
+            if (item.private)
+              |Private
+            else
+              |Public
+          td= item.forks
+          td= item.open_issues

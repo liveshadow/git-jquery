@@ -8,4 +8,5 @@ $( "#myrepos" ).on( "click", function( event ) {
 
 $( "#myevents" ).on( "click", function( event ) {
     myEvents()
+    $("#details").empty()
 })

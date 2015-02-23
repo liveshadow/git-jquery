@@ -1,1 +1,62 @@
-h5= item.full_name
+h5
+  a(href=item.html_url)
+    = item.name
+
+p= item.description
+
+div.row
+  div.three.columns
+    strong= "Watched"
+  div.three.columns
+    strong= "Open Issues"
+  div.three.columns
+    strong= "Forks"
+  div.three.columns
+    strong= "Language"
+
+div.row
+  div.three.columns
+    = item.watchers_count
+  div.three.columns
+    = item.open_issues
+  div.three.columns
+    = item.forks
+  div.three.columns
+    = item.language
+
+br
+
+div.row
+  div.four.columns
+    if (item.owner.avatar_url)
+      img(width='300' src=item.owner.avatar_url)
+    else if (item.owner.gravatar_id)
+      img(width='300' src=item.owner.gravatar_id)
+    div.eight.columns
+      strong= "Owner: "
+        a(href=item.owner.html_url)
+          = item.owner.login
+      br
+      strong= "Type: "
+      = item.owner.type
+      br
+      if item.private
+        strong= "Private"
+      else
+        strong= "Public"
+br
+
+strong= "Created at: "
+= item.created_at
+br
+strong= "Updated at: "
+= item.updated_at
+br
+strong= "Pushed at: "
+= item.pushed_at
+br
+strong= "Clone URL: "
+= item.clone_url
+br
+strong= "SVN URL: "
+= item.svn_url
